@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace TPWinForm_equipo_10B
 {
-    internal class Producto 
+    internal class Articulo 
     {
         private int codArticulo;
         private string nombre;
         private string descripcion;
-        private string marca;
-        private int categoria;
+        private Marca marca;
+        private string categoria;
         private int stock;
         private bool disponible;
         private float precioContado;
         private int cuotas;
         private float precioCuota;
-        private int opcionPago;
+        private string medioPago;
         private bool envioGratis;
 
         public int CodigoArticulo{
@@ -34,12 +34,8 @@ namespace TPWinForm_equipo_10B
             set { descripcion = value; }
             get { return descripcion; }
         }
-        public string Marca
-        {
-            set { marca = value; }
-            get { return marca; }
-        }
-        public int Categoria
+       
+        public string Categoria
         {
             set { categoria = value; }
             get { return categoria; }
@@ -69,10 +65,10 @@ namespace TPWinForm_equipo_10B
             set { precioCuota = value; }
             get { return precioCuota; }
         }
-        public int OpcionPago
+        public string MedioPago
         {
-            set { opcionPago = value; }
-            get { return opcionPago; }
+            set { medioPago = value; }
+            get { return medioPago; }
         }
         public bool EnvioGratis
         {
