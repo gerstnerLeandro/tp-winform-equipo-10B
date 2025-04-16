@@ -16,5 +16,31 @@ namespace TPWinForm_equipo_10B
         {
             InitializeComponent();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Articulo articulo = new Articulo();
+            
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            ListarArticulos lista = new ListarArticulos();
+            
+           
+
+        }
+
+        private void Articulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+
+        }
+
+        private void Form5_ListarArticulos_Load(object sender, EventArgs e)
+        {
+            ListarArticulos lista = new ListarArticulos();
+            Articulos.DataSource = lista.listar();
+        }
     }
 }

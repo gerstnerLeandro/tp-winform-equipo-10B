@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categoria.cs" />
     <Compile Include="Form1_ListarArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +78,8 @@
     <Compile Include="Form4_EliminaArticulo.Designer.cs">
       <DependentUpon>Form4_EliminaArticulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Imagen.cs" />
+    <Compile Include="ListarArticulos.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
