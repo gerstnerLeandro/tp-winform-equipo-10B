@@ -58,7 +58,6 @@
     <Compile Include="Form1_Principal.Designer.cs">
       <DependentUpon>Form1_Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="NegocioArticulos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1_ListarArticulos.resx">
@@ -93,6 +92,10 @@
     <ProjectReference Include="..\dominio\dominio.csproj">
       <Project>{bf6a6e24-087e-4c2c-af61-ef1c83a15099}</Project>
       <Name>dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\negocio\negocio.csproj">
+      <Project>{2ccc9af9-0e87-4ea1-b134-e413a585b77b}</Project>
+      <Name>negocio</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
