@@ -9,7 +9,7 @@ namespace TPWinForm_equipo_10B
 {
     internal class ListarArticulos
     {
-        public List <Articulo> listar()
+        public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();
 
@@ -21,7 +21,7 @@ namespace TPWinForm_equipo_10B
             {
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select Id,Codigo,Nombre,Descripcion,IdMarca,IdCategoria,Precio from ARTICULOS";
+                comando.CommandText = "select A.Id,Codigo,Nombre,Descripcion,IdMarca,IdCategoria,ImagenUrl, Precio from ARTICULOS A, IMAGENES IM  where A.Id=IM.IdArticulo";
                 comando.Connection = conexion;
                 conexion.Open();
                 lector = comando.ExecuteReader();
@@ -31,6 +31,7 @@ namespace TPWinForm_equipo_10B
                     Articulo aux = new Articulo();
                     aux.Marca = new Marca();
                     aux.Categoria = new Categoria();
+                    aux.Imagen=new Imagen();
 
                     aux.IDArticulo = (int)lector["Id"];
                     aux.Codigo = (string)lector["Codigo"];
@@ -38,6 +39,7 @@ namespace TPWinForm_equipo_10B
                     aux.Descripcion = (string)lector["Descripcion"];
                     aux.Marca.IDMarca = (int)lector["IdMarca"];
                     aux.Categoria.IDCategoria = (int)lector["IdCategoria"];
+                    aux.Imagen.ImagenUrl = (string)lector["ImagenUrl"];
                     aux.Precio = (decimal)lector["Precio"];
 
                     lista.Add(aux);
@@ -45,9 +47,10 @@ namespace TPWinForm_equipo_10B
                 conexion.Close();
                 return lista;
             }
-            catch (Exception ex) { 
+            catch (Exception ex)
+            {
 
-             }
+            }
 
             return lista;
 

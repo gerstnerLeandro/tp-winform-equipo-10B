@@ -20,5 +20,9 @@ namespace TPWinForm_equipo_10B
             set { Descripcion = value; }
             get { return descripcion; }
         }
+        public override string ToString()
+        {
+            return descripcion;
+        }
     }
 }

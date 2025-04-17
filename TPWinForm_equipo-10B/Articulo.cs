@@ -48,5 +48,11 @@ namespace TPWinForm_equipo_10B
             set { precio = value; }
             get { return precio; }
         }
+        public Imagen Imagen
+        {
+            set { imagen = value; }
+            get { return imagen; }
+        }
+       
     }
 }

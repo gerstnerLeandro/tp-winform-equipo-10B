@@ -22,5 +22,9 @@ namespace TPWinForm_equipo_10B
             set { nombre = value; }
             get { return nombre; }
         }
+        public override string ToString()
+        {
+            return nombre;
+        }
     }
 }

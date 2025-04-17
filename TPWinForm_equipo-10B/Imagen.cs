@@ -26,5 +26,9 @@ namespace TPWinForm_equipo_10B
             set { imagenUrl = value; }
             get { return imagenUrl; }
         }
+        public override string ToString()
+        {
+            return imagenUrl;
+        }
     }
 }

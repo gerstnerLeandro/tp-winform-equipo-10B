@@ -28,35 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Articulos = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.Articulos)).BeginInit();
+            this.pictureBox1Imagen = new System.Windows.Forms.PictureBox();
+            this.dgvListar = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1Imagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
-            // Articulos
+            // pictureBox1Imagen
             // 
-            this.Articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Articulos.Location = new System.Drawing.Point(47, 48);
-            this.Articulos.Name = "Articulos";
-            this.Articulos.Size = new System.Drawing.Size(372, 210);
-            this.Articulos.TabIndex = 0;
-            this.Articulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Articulos_CellContentClick);
+            this.pictureBox1Imagen.Location = new System.Drawing.Point(655, 85);
+            this.pictureBox1Imagen.Name = "pictureBox1Imagen";
+            this.pictureBox1Imagen.Size = new System.Drawing.Size(172, 147);
+            this.pictureBox1Imagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1Imagen.TabIndex = 1;
+            this.pictureBox1Imagen.TabStop = false;
+            // 
+            // dgvListar
+            // 
+            this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListar.Location = new System.Drawing.Point(12, 40);
+            this.dgvListar.Name = "dgvListar";
+            this.dgvListar.Size = new System.Drawing.Size(570, 178);
+            this.dgvListar.TabIndex = 2;
+            this.dgvListar.SelectionChanged += new System.EventHandler(this.dgvListar_SelectionChanged);
             // 
             // Form5_ListarArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 359);
-            this.Controls.Add(this.Articulos);
+            this.ClientSize = new System.Drawing.Size(890, 359);
+            this.Controls.Add(this.dgvListar);
+            this.Controls.Add(this.pictureBox1Imagen);
             this.Name = "Form5_ListarArticulos";
             this.Text = "Listar Articulos";
             this.Load += new System.EventHandler(this.Form5_ListarArticulos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Articulos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1Imagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView Articulos;
+        private System.Windows.Forms.PictureBox pictureBox1Imagen;
+        private System.Windows.Forms.DataGridView dgvListar;
     }
 }
