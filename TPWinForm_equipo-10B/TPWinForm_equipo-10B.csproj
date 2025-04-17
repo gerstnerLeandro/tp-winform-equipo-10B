@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Categoria.cs" />
     <Compile Include="Form1_ListarArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,28 +58,7 @@
     <Compile Include="Form1_Principal.Designer.cs">
       <DependentUpon>Form1_Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Articulo.cs" />
-    <Compile Include="Form2_AltaAritculo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2_AltaAritculo.Designer.cs">
-      <DependentUpon>Form2_AltaAritculo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form3_ModificacionArticulo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form3_ModificacionArticulo.Designer.cs">
-      <DependentUpon>Form3_ModificacionArticulo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form4_EliminaArticulo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form4_EliminaArticulo.Designer.cs">
-      <DependentUpon>Form4_EliminaArticulo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Imagen.cs" />
-    <Compile Include="ListarArticulos.cs" />
-    <Compile Include="Marca.cs" />
+    <Compile Include="NegocioArticulos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1_ListarArticulos.resx">
@@ -88,15 +66,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1_Principal.resx">
       <DependentUpon>Form1_Principal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form2_AltaAritculo.resx">
-      <DependentUpon>Form2_AltaAritculo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form3_ModificacionArticulo.resx">
-      <DependentUpon>Form3_ModificacionArticulo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form4_EliminaArticulo.resx">
-      <DependentUpon>Form4_EliminaArticulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -119,6 +88,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\dominio\dominio.csproj">
+      <Project>{bf6a6e24-087e-4c2c-af61-ef1c83a15099}</Project>
+      <Name>dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

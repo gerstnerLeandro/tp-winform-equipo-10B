@@ -38,38 +38,32 @@ namespace TPWinForm_equipo_10B
 
         private void button1Alta_Click(object sender, EventArgs e)
         {
-            Form2_AltaAritculo ventanaAlta= new Form2_AltaAritculo();
-            ventanaAlta.Show();
+           
         }
 
         private void altaArticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2_AltaAritculo ventanaAlta = new Form2_AltaAritculo();
-            ventanaAlta.Show();
+            
         }
 
         private void modificarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3_ModificacionArticulo ventanaModificacion = new Form3_ModificacionArticulo();
-            ventanaModificacion.Show();
+           
         }
 
         private void button2Modificar_Click(object sender, EventArgs e)
         {
-            Form3_ModificacionArticulo ventanaModificacion = new Form3_ModificacionArticulo();
-            ventanaModificacion.Show();
+           
         }
 
         private void eliminarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form4_EliminaArticulo ventanaElimina = new Form4_EliminaArticulo();
-            ventanaElimina.Show();
+           
         }
 
         private void button3Eliminar_Click(object sender, EventArgs e)
         {
-            Form4_EliminaArticulo ventanaElimina = new Form4_EliminaArticulo();
-            ventanaElimina.Show();
+            
         }
 
         private void listarArticulosToolStripMenuItem_Click(object sender, EventArgs e)

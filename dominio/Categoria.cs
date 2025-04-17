@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TPWinForm_equipo_10B
+namespace dominio
 {
-    internal class Categoria
+    public  class Categoria
     {
         private int IDcategoria;
         private string descripcion;

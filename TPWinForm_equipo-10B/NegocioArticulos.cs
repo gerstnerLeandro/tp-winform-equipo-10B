@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using dominio;
 
 namespace TPWinForm_equipo_10B
 {
-    internal class ListarArticulos
+    internal class NegocioArticulos
     {
         public List<Articulo> listar()
         {

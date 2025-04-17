@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dominio;
 
 namespace TPWinForm_equipo_10B
 {
@@ -20,12 +21,13 @@ namespace TPWinForm_equipo_10B
         }
         private void Form5_ListarArticulos_Load(object sender, EventArgs e)
         {
-            ListarArticulos lista = new ListarArticulos();
+            NegocioArticulos lista = new NegocioArticulos();
             listaArticulos = lista.listar();
             dgvListar.DataSource = listaArticulos;
             dgvListar.Columns[0].Visible = false;
             dgvListar.Columns[4].Visible = false;
             dgvListar.Columns[5].Visible = false;
+            dgvListar.Columns[7].Visible = false;
 
             cargarImagen(listaArticulos[0].Imagen.ImagenUrl);
 

@@ -1,8 +1,8 @@
 ﻿using System.Dynamic;
 
-namespace TPWinForm_equipo_10B
+namespace dominio
 {
-    internal class Articulo
+    public class Articulo
     {
         private int IDarticulo;
         private string codigo;

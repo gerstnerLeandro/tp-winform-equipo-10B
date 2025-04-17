@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TPWinForm_equipo_10B
+namespace dominio
 {
-    internal class Imagen
+    public class Imagen
     {
         private int IDimagen;
         private int IDarticulo;
