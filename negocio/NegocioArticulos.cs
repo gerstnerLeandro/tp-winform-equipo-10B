@@ -15,19 +15,9 @@ namespace negocio
             List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
 
-           // SqlConnection conexion = new SqlConnection();
-            //SqlCommand comando = new SqlCommand();
-            //SqlDataReader lector;
-
             try
             {
-                // conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true";
-                //comando.CommandType = System.Data.CommandType.Text;
-                //comando.CommandText = "select A.Id,Codigo,Nombre,Descripcion,IdMarca,IdCategoria,ImagenUrl, Precio from ARTICULOS A, IMAGENES IM  where A.Id=IM.IdArticulo";
-                datos.SetearConsulta("select A.Id,Codigo,Nombre,Descripcion,IdMarca,IdCategoria,ImagenUrl, Precio from ARTICULOS A, IMAGENES IM  where A.Id=IM.IdArticulo");
-                //comando.Connection = conexion;
-                //conexion.Open();
-                //lector = comando.ExecuteReader();
+                datos.SetearConsulta("select A.Id IDarticulo,A.Codigo codigoArticlo,A.Nombre nombreArticulo,A.Descripcion descripcionArticulo,A.IdMarca IDmarcaArticulo,MA.Descripcion marcaDescripcion,A.IdCategoria IDcategoriaArticulo,CA.Descripcion descripcionCategoria,A.Precio precioArticulo,I.ImagenUrl urlImagen from ARTICULOS A , MARCAS MA , CATEGORIAS CA , IMAGENES I where A.IdMarca=MA.Id and A.IdCategoria=CA.Id and A.Id=I.IdArticulo");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -37,18 +27,20 @@ namespace negocio
                     aux.Categoria = new Categoria();
                     aux.Imagen=new Imagen();
 
-                    aux.IDArticulo = (int)datos.Lector["Id"];
-                    aux.Codigo = (string)datos.Lector["Codigo"];
-                    aux.Nombre = (string)datos.Lector["Nombre"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Marca.IDMarca = (int)datos.Lector["IdMarca"];
-                    aux.Categoria.IDCategoria = (int)datos.Lector["IdCategoria"];
-                    aux.Imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
-                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    aux.IDArticulo = (int)datos.Lector["IDarticulo"];
+                    aux.Codigo = (string)datos.Lector["codigoArticlo"];
+                    aux.Nombre = (string)datos.Lector["nombreArticulo"];
+                    aux.Descripcion = (string)datos.Lector["descripcionArticulo"];
+                    aux.Marca.IDMarca = (int)datos.Lector["IDmarcaArticulo"];
+                    aux.Marca.Nombre = (string)datos.Lector["marcaDescripcion"];
+                    aux.Categoria.IDCategoria = (int)datos.Lector["IDcategoriaArticulo"];
+                    aux.Categoria.Descripcion=(string)datos.Lector["descripcionCategoria"];
+                    aux.Precio = (decimal)datos.Lector["precioArticulo"];
+                    aux.Imagen.ImagenUrl = (string)datos.Lector["urlImagen"];
+                    
 
                     lista.Add(aux);
                 }
-                //conexion.Close();
                 return lista;
             }
             catch (Exception ex)
@@ -66,7 +58,20 @@ namespace negocio
 
         public void Agregar(Articulo nuevo)
         {
-
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta("insert into ARTICULOS(Codigo,Nombre,Descripcion,IdMarca,IdCategoria,Precio) values('"+nuevo.Codigo+"','"+nuevo.Nombre+"','"+nuevo.Descripcion+"',"+nuevo.Marca.IDMarca+","+nuevo.Categoria.IDCategoria+","+nuevo.Precio+")");
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
         public void Modificar(Articulo modificar)
         {

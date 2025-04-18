@@ -38,12 +38,14 @@ namespace TPWinForm_equipo_10B
 
         private void button1Alta_Click(object sender, EventArgs e)
         {
-           
+            Form2AltaArticulo AltaAriculo = new Form2AltaArticulo();
+            AltaAriculo.ShowDialog();
         }
 
         private void altaArticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            Form2AltaArticulo AltaAriculo = new Form2AltaArticulo();
+            AltaAriculo.ShowDialog();
         }
 
         private void modificarArticuloToolStripMenuItem_Click(object sender, EventArgs e)

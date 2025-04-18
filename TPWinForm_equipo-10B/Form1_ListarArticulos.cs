@@ -28,8 +28,10 @@ namespace TPWinForm_equipo_10B
             dgvListar.Columns[0].Visible = false;
             dgvListar.Columns[4].Visible = false;
             dgvListar.Columns[5].Visible = false;
+            dgvListar.Columns[6].Visible = false;
             dgvListar.Columns[7].Visible = false;
-
+            dgvListar.Columns[9].Visible = false;
+            
             cargarImagen(listaArticulos[0].Imagen.ImagenUrl);
 
         }

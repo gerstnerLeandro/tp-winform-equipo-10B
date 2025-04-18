@@ -1,4 +1,5 @@
 ﻿using System.Dynamic;
+using System.Security.Policy;
 
 namespace dominio
 {
@@ -9,7 +10,9 @@ namespace dominio
         private string nombre;
         private string descripcion;
         private Marca marca;
+        private int idmarca;
         private Categoria categoria;
+        private int idcategoria;
         private decimal precio;
         private Imagen imagen;
 
@@ -33,10 +36,20 @@ namespace dominio
             set { descripcion = value; }
             get { return descripcion; }
         }
+        public int Idmarca
+        {
+            set { idmarca = value; }
+            get { return idmarca; }
+        }
         public Marca Marca
         {
             set { marca = value; }
             get { return marca; }
+        }
+        public int Idcategoria
+        {
+            set { idcategoria = value; }
+            get { return idcategoria; }
         }
         public Categoria Categoria
         {

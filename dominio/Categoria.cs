@@ -17,7 +17,7 @@ namespace dominio
         }
         public string Descripcion
         {
-            set { Descripcion = value; }
+            set { descripcion = value; }
             get { return descripcion; }
         }
         public override string ToString()
