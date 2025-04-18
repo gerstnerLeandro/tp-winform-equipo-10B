@@ -46,6 +46,7 @@ namespace TPWinForm_equipo_10B
 
 
                 negocio.Agregar(articulo);
+                MessageBox.Show("Articulo agregado correctamente");
                 Close();
             }
             catch (Exception ex)
