@@ -41,7 +41,7 @@ namespace negocio
                 datos.cerrarConexion();
             }
 
-            return lista;
+           
 
         }
     }

@@ -30,18 +30,20 @@ namespace negocio
                     aux.IDArticulo = (int)datos.Lector["IDarticulo"];
                     aux.Codigo = (string)datos.Lector["codigoArticlo"];
                     aux.Nombre = (string)datos.Lector["nombreArticulo"];
-                    aux.Descripcion = (string)datos.Lector["descripcionArticulo"];
+                    if (!(datos.Lector["descripcionArticulo"] is DBNull))
+                        aux.Descripcion = (string)datos.Lector["descripcionArticulo"];
                     aux.Marca.IDMarca = (int)datos.Lector["IDmarcaArticulo"];
                     aux.Marca.Nombre = (string)datos.Lector["marcaDescripcion"];
                     aux.Categoria.IDCategoria = (int)datos.Lector["IDcategoriaArticulo"];
                     aux.Categoria.Descripcion=(string)datos.Lector["descripcionCategoria"];
-                    aux.Precio = (decimal)datos.Lector["precioArticulo"];
+                    if (!(datos.Lector["precioArticulo"] is DBNull))
+                        aux.Precio = (decimal)datos.Lector["precioArticulo"];                   
                     aux.Imagen.ImagenUrl = (string)datos.Lector["urlImagen"];
                     
 
                     lista.Add(aux);
                 }
-                return lista;
+              
             }
             catch (Exception ex)
             {
