@@ -30,13 +30,14 @@
         {
             this.pictureBox1Imagen = new System.Windows.Forms.PictureBox();
             this.dgvListar = new System.Windows.Forms.DataGridView();
+            this.button1Aceptar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1Imagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1Imagen
             // 
-            this.pictureBox1Imagen.Location = new System.Drawing.Point(655, 85);
+            this.pictureBox1Imagen.Location = new System.Drawing.Point(651, 71);
             this.pictureBox1Imagen.Name = "pictureBox1Imagen";
             this.pictureBox1Imagen.Size = new System.Drawing.Size(172, 147);
             this.pictureBox1Imagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -46,17 +47,31 @@
             // dgvListar
             // 
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListar.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvListar.Location = new System.Drawing.Point(12, 40);
+            this.dgvListar.MultiSelect = false;
             this.dgvListar.Name = "dgvListar";
+            this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(570, 178);
             this.dgvListar.TabIndex = 2;
             this.dgvListar.SelectionChanged += new System.EventHandler(this.dgvListar_SelectionChanged);
+            // 
+            // button1Aceptar
+            // 
+            this.button1Aceptar.Location = new System.Drawing.Point(27, 274);
+            this.button1Aceptar.Name = "button1Aceptar";
+            this.button1Aceptar.Size = new System.Drawing.Size(121, 49);
+            this.button1Aceptar.TabIndex = 3;
+            this.button1Aceptar.Text = "Aceptar";
+            this.button1Aceptar.UseVisualStyleBackColor = true;
+            this.button1Aceptar.Click += new System.EventHandler(this.button1Aceptar_Click);
             // 
             // Form5_ListarArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 359);
+            this.Controls.Add(this.button1Aceptar);
             this.Controls.Add(this.dgvListar);
             this.Controls.Add(this.pictureBox1Imagen);
             this.Name = "Form5_ListarArticulos";
@@ -71,5 +86,6 @@
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1Imagen;
         private System.Windows.Forms.DataGridView dgvListar;
+        private System.Windows.Forms.Button button1Aceptar;
     }
 }

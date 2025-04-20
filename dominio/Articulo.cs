@@ -16,6 +16,11 @@ namespace dominio
         private decimal precio;
         private Imagen imagen;
 
+        public Articulo(){
+            marca= new Marca();
+            categoria= new Categoria();
+            imagen= new Imagen();
+            }
         public int IDArticulo
         {
             set { IDarticulo = value; }

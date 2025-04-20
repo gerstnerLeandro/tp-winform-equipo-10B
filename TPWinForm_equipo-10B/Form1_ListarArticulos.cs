@@ -20,7 +20,12 @@ namespace TPWinForm_equipo_10B
         {
             InitializeComponent();
         }
-        private void Form5_ListarArticulos_Load(object sender, EventArgs e)
+        public void Form5_ListarArticulos_Load(object sender, EventArgs e)
+        {
+            cargar();
+
+        }
+        public void cargar()
         {
             NegocioArticulos lista = new NegocioArticulos();
 
@@ -37,11 +42,10 @@ namespace TPWinForm_equipo_10B
 
                 cargarImagen(listaArticulos[0].Imagen.ImagenUrl);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 throw ex;
             }
-
         }
 
         private void Articulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -63,6 +67,11 @@ namespace TPWinForm_equipo_10B
             catch (Exception ex){
                 pictureBox1Imagen.Load("https://th.bing.com/th/id/OIP.iWIEidVomFA1iDjwsqxv6wHaHa?w=168&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7");
             }
+        }
+
+        private void button1Aceptar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

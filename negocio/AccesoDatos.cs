@@ -34,7 +34,10 @@ namespace negocio
             comando.Connection = conexion;
             try
             {
-                conexion.Open();
+                if (conexion.State != System.Data.ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
                 lector = comando.ExecuteReader();
             }
             catch (Exception ex)
@@ -47,7 +50,11 @@ namespace negocio
             comando.Connection = conexion;
             try
             {
-                conexion.Open();
+                if (conexion.State != System.Data.ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+                    
                 comando.ExecuteNonQuery();
             }
             catch (Exception ex)

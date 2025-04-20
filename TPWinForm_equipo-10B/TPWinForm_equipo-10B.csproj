@@ -64,6 +64,12 @@
     <Compile Include="Form2AltaArticulo.Designer.cs">
       <DependentUpon>Form2AltaArticulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAgregarMasImagenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarMasImagenes.Designer.cs">
+      <DependentUpon>frmAgregarMasImagenes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1_ListarArticulos.resx">
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2AltaArticulo.resx">
       <DependentUpon>Form2AltaArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarMasImagenes.resx">
+      <DependentUpon>frmAgregarMasImagenes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
