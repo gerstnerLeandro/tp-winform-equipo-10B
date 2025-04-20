@@ -69,7 +69,24 @@ namespace negocio
             }
         }
         
-        
+        public void eliminarImagen(Articulo articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {                
+                datos.SetearConsulta("delete IMAGENES where IdArticulo=@codigoArticulo");
+                datos.setearParametro("@codigoArticulo", articulo.IDArticulo);
+                datos.ejecutarAccion();
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+            
+        }
         public void idUltimaImagen(Imagen aux)
         {
             AccesoDatos datos=new AccesoDatos();

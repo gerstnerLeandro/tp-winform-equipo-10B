@@ -156,7 +156,11 @@ namespace negocio
         {
             AccesoDatos datos=new AccesoDatos();
             try
-            {   
+            {
+                datos.SetearConsulta("update IMAGENES set ImagenUrl=@url where Id=@IdArticulo");
+                datos.setearParametro("@url", art.Imagen.ImagenUrl);
+                datos.setearParametro("@IdArticulo", art.IDArticulo);
+                datos.ejecutarAccion();
                 
 
                 datos.SetearConsulta("update ARTICULOS set Codigo=@codigo,Nombre=@nombre,Descripcion=@descripcion,IdMarca=@idMarca,IdCategoria=@idCategoria,Precio=@precio where Id= @id");
@@ -168,11 +172,7 @@ namespace negocio
                 datos.setearParametro("@precio", art.Precio);
                 datos.setearParametro("@id", art.IDArticulo);
                 datos.ejecutarAccion();
-
-                datos.SetearConsulta("update IMAGENES set ImagenUrl=@url where Id=@idImagen");
-                datos.setearParametro("@url", art.Imagen.ImagenUrl);
-                datos.setearParametro("@idImagen", art.Imagen.IDImagen);
-                datos.ejecutarAccion();
+               
             }
             catch (Exception ex) 
             {
@@ -183,5 +183,29 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+        
+        public void Elimnar(Articulo articulo)
+        {
+            try
+            {
+                AccesoDatos datos= new AccesoDatos();
+                NegocioImagen negocioImagen= new NegocioImagen();
+                negocioImagen.eliminarImagen(articulo);
+                datos.SetearConsulta("delete ARTICULOS where Id=@idArticulo");
+                datos.setearParametro("@idArticulo", articulo.IDArticulo);
+                datos.ejecutarAccion();
+                
+
+            }
+            catch (Exception ex) 
+            {
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
     }
+    
 }

@@ -14,9 +14,11 @@ namespace TPWinForm_equipo_10B
 {
     public partial class Form5_ListarArticulos : Form
     {
+        
+       
         private List<Articulo> listaArticulos;
-
-        public Form5_ListarArticulos()
+                
+            public Form5_ListarArticulos()
         {
             InitializeComponent();
         }
@@ -33,13 +35,12 @@ namespace TPWinForm_equipo_10B
             {
                 listaArticulos = lista.listar();
                 dgvListar.DataSource = listaArticulos;
-                /*dgvListar.Columns[0].Visible = false;
+                dgvListar.Columns[0].Visible = false;
                 dgvListar.Columns[4].Visible = false;
                 dgvListar.Columns[5].Visible = false;
-                dgvListar.Columns[6].Visible = false;
-                dgvListar.Columns[7].Visible = false;
+                dgvListar.Columns[6].Visible = false;                
                 dgvListar.Columns[9].Visible = false;
-                */
+                
                 cargarImagen(listaArticulos[0].Imagen.ImagenUrl);
             }
             catch (Exception ex)
@@ -82,6 +83,29 @@ namespace TPWinForm_equipo_10B
             form2ModificarArticulo.ShowDialog();
             cargar();
 
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            NegocioArticulos negocio = new NegocioArticulos();
+            Articulo seleccionado =new Articulo();
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Eliminar?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvListar.CurrentRow.DataBoundItem;
+                    negocio.Elimnar(seleccionado);
+                    MessageBox.Show("Articulo eliminado correctamente");
+                    cargar();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
         }
     }
 }

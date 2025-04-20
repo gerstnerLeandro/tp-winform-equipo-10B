@@ -62,12 +62,14 @@ namespace TPWinForm_equipo_10B
 
         private void eliminarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            Form5_ListarArticulos ventanaListar = new Form5_ListarArticulos();
+            ventanaListar.Show();
         }
 
         private void button3Eliminar_Click(object sender, EventArgs e)
         {
-            
+            Form5_ListarArticulos ventanaListar = new Form5_ListarArticulos();
+            ventanaListar.Show();
         }
 
         private void listarArticulosToolStripMenuItem_Click(object sender, EventArgs e)
