@@ -33,13 +33,13 @@ namespace TPWinForm_equipo_10B
             {
                 listaArticulos = lista.listar();
                 dgvListar.DataSource = listaArticulos;
-                dgvListar.Columns[0].Visible = false;
+                /*dgvListar.Columns[0].Visible = false;
                 dgvListar.Columns[4].Visible = false;
                 dgvListar.Columns[5].Visible = false;
                 dgvListar.Columns[6].Visible = false;
                 dgvListar.Columns[7].Visible = false;
                 dgvListar.Columns[9].Visible = false;
-
+                */
                 cargarImagen(listaArticulos[0].Imagen.ImagenUrl);
             }
             catch (Exception ex)
@@ -72,6 +72,16 @@ namespace TPWinForm_equipo_10B
         private void button1Aceptar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvListar.CurrentRow.DataBoundItem;
+            Form2AltaArticulo form2ModificarArticulo= new Form2AltaArticulo(seleccionado);
+            form2ModificarArticulo.ShowDialog();
+            cargar();
+
         }
     }
 }

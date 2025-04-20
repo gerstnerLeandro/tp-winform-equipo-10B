@@ -9,6 +9,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace negocio
 {
+    
     public class NegocioArticulos
     {
         
@@ -25,9 +26,7 @@ namespace negocio
                 while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
-                    aux.Marca = new Marca();
-                    aux.Categoria = new Categoria();
-                    aux.Imagen=new Imagen();
+                    
                     
                     aux.IDArticulo = (int)datos.Lector["IDarticulo"];
                     aux.Codigo = (string)datos.Lector["codigoArticlo"];
@@ -35,8 +34,10 @@ namespace negocio
                     if (!(datos.Lector["descripcionArticulo"] is DBNull))
                         aux.Descripcion = (string)datos.Lector["descripcionArticulo"];
                     aux.Marca.IDMarca = (int)datos.Lector["IDmarcaArticulo"];
+                    aux.Idmarca= (int)datos.Lector["IDmarcaArticulo"];
                     aux.Marca.Nombre = (string)datos.Lector["marcaDescripcion"];
                     aux.Categoria.IDCategoria = (int)datos.Lector["IDcategoriaArticulo"];
+                    aux.Idcategoria= (int)datos.Lector["IDcategoriaArticulo"];
                     aux.Categoria.Descripcion=(string)datos.Lector["descripcionCategoria"];
                     if (!(datos.Lector["precioArticulo"] is DBNull))
                         aux.Precio = (decimal)datos.Lector["precioArticulo"];                   
@@ -77,6 +78,8 @@ namespace negocio
                 datos.ejecutarAccion();
 
                 buscarUltimoID(imagen);
+                negocioImagen.idUltimaImagen(imagen);
+
                              
                 negocioImagen.AgregarImagen(imagen);
                 //datos.cerrarConexion();
@@ -149,8 +152,36 @@ namespace negocio
             }
             
         }
-        public void Modificar(Articulo modificar)
+        public void Modificar(Articulo art)
         {
+            AccesoDatos datos=new AccesoDatos();
+            try
+            {   
+                
+
+                datos.SetearConsulta("update ARTICULOS set Codigo=@codigo,Nombre=@nombre,Descripcion=@descripcion,IdMarca=@idMarca,IdCategoria=@idCategoria,Precio=@precio where Id= @id");
+                datos.setearParametro("@codigo", art.Codigo);
+                datos.setearParametro("@nombre", art.Nombre);
+                datos.setearParametro("@descripcion", art.Descripcion);
+                datos.setearParametro("@idMarca", art.Marca.IDMarca);
+                datos.setearParametro("@idCategoria", art.Categoria.IDCategoria);
+                datos.setearParametro("@precio", art.Precio);
+                datos.setearParametro("@id", art.IDArticulo);
+                datos.ejecutarAccion();
+
+                datos.SetearConsulta("update IMAGENES set ImagenUrl=@url where Id=@idImagen");
+                datos.setearParametro("@url", art.Imagen.ImagenUrl);
+                datos.setearParametro("@idImagen", art.Imagen.IDImagen);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex) 
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
     }
 }

@@ -15,9 +15,17 @@ namespace TPWinForm_equipo_10B
 {
     public partial class Form2AltaArticulo : Form
     {
+        private Articulo articulo = null;
         public Form2AltaArticulo()
         {
             InitializeComponent();
+        }
+        public Form2AltaArticulo(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+            Text = "Modificar Articulo";
+
         }
 
         private void button2Cancelar_Click(object sender, EventArgs e)
@@ -30,14 +38,14 @@ namespace TPWinForm_equipo_10B
         }
         private void button1Aceptar_Click(object sender, EventArgs e)
         {
-            Articulo articulo = new Articulo();
             
-           
-
             NegocioArticulos negocioArticulo = new NegocioArticulos();
             NegocioImagen negocioImagen = new NegocioImagen();
             try
             {
+                if(articulo==null) 
+                    articulo=new Articulo();
+
                 articulo.Codigo = textBoxCodigoArticulo.Text;
                 articulo.Nombre = textBoxNombre.Text;
                 articulo.Descripcion = textBoxDescripcion.Text;
@@ -46,21 +54,20 @@ namespace TPWinForm_equipo_10B
                 articulo.Precio = decimal.Parse(textBoxPrecio.Text);
                 articulo.Imagen.ImagenUrl = textBoxURL.Text;
 
-                negocioArticulo.AgregarArticulo(articulo);
-
-                frmAgregarMasImagenes frmAgregarMasImagen = new frmAgregarMasImagenes();
-                
-                frmAgregarMasImagen.ShowDialog();
-
-               
-
-                MessageBox.Show("Articulo agregado correctamente");
+                if (articulo.IDArticulo != 0)
+                {
+                    negocioArticulo.Modificar(articulo);
+                    MessageBox.Show("Articulo modificado correctamente");
+                }
+                else {
+                    frmAgregarMasImagenes frmAgregarMasImagen = new frmAgregarMasImagenes();
+                    negocioArticulo.AgregarArticulo(articulo);
+                    frmAgregarMasImagen.ShowDialog();
+                    MessageBox.Show("Articulo agregado correctamente");
+                }
 
                 Form5_ListarArticulos grilla = new Form5_ListarArticulos();
                 grilla.ShowDialog();
-
-
-
 
                 Close();
 
@@ -81,9 +88,27 @@ namespace TPWinForm_equipo_10B
 
             NegocioMarca negocioMarca = new NegocioMarca();
             comboBoxIDmarca.DataSource = negocioMarca.listar();
+            comboBoxIDmarca.ValueMember = "IDmarca";
+            comboBoxIDmarca.DisplayMember = "nombre";
 
             NegocioCategoria negocioCategoria = new NegocioCategoria();
             comboBoxIDcategoria.DataSource = negocioCategoria.listar();
+            comboBoxIDcategoria.ValueMember = "IDcategoria";
+            comboBoxIDcategoria.DisplayMember = "descripcion";
+
+            if (articulo != null)
+            {
+                textBoxCodigoArticulo.Text= articulo.Codigo;
+                textBoxNombre.Text= articulo.Nombre;
+                textBoxDescripcion.Text= articulo.Descripcion;
+
+                comboBoxIDmarca.SelectedValue= articulo.Marca.IDMarca;
+                comboBoxIDcategoria.SelectedValue= articulo.Categoria.IDCategoria;
+
+                textBoxURL.Text = articulo.Imagen.ImagenUrl;
+                textBoxPrecio.Text= articulo.Precio.ToString();
+                cargarImagen(articulo.Imagen.ImagenUrl);
+            }
 
         }
 

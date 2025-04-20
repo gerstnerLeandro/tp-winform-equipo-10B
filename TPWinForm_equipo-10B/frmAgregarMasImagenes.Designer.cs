@@ -94,7 +94,7 @@
             this.Controls.Add(this.textBoxURL);
             this.Controls.Add(this.labelPregunta);
             this.Name = "frmAgregarMasImagenes";
-            this.Text = "frmAgregarImagen";
+            this.Text = "Agregar mas Imagen";
             this.Load += new System.EventHandler(this.frmAgregarMasImagenes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);

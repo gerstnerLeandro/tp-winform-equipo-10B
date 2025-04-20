@@ -68,6 +68,8 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+        
+        
         public void idUltimaImagen(Imagen aux)
         {
             AccesoDatos datos=new AccesoDatos();
